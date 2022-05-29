@@ -21,7 +21,7 @@ const CustomSidebarMenu = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       {/*Top Large Image */}
       <Image
-        source={require('./Variable_Stars_icon_blue.png')}
+        source={require('./Variable_Stars_icon.png')}
         style={styles.sideMenuProfileIcon}
       />
       <DrawerContentScrollView {...props}>
