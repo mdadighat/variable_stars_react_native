@@ -102,21 +102,6 @@ function AppBar() {
     </>;
 }
 
-
-export function Example() {
-  return (
-    <VStack space={4} alignItems="center">
-      <Heading textAlign="center" mb="10">
-        VStack
-      </Heading>
-      <Center w="200" h="20" bg="#bec6c9" rounded="md" shadow={3} />
-      <Center w="100" h="20" bg="#749ECA" rounded="md" shadow={3} />
-      <Center w="100" h="20" bg="#567aa3" rounded="md" shadow={3} />
-    </VStack>
-  )
-}
-
-
 export default function () {
   const scheme = DarkTheme;
   return (
