@@ -27,6 +27,9 @@ import {useColorScheme} from 'react-native';
 // theme components and the navigation container
 import {DarkTheme,DefaultTheme} from '@react-navigation/native'; 
 
+// Import Custom Sidebar
+import CustomSidebarMenu from './CustomSidebarMenu';
+
 
 const newColorTheme = {
   brand: {
@@ -38,20 +41,41 @@ const newColorTheme = {
 
 function HomeScreen({ navigation }) {
   return (
+    <SafeAreaView>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
+      
     </View>
+    </SafeAreaView>
   );
 }
 
-function NotificationsScreen({ navigation }) {
+function LearnScreen({ navigation }) {
   return (
+    <SafeAreaView>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+      
     </View>
+    </SafeAreaView>
+  );
+}
+
+function ExploreScreen({ navigation }) {
+  return (
+    <SafeAreaView>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      
+    </View>
+    </SafeAreaView>
+  );
+}
+
+function SettingsScreen({ navigation }) {
+  return (
+    <SafeAreaView>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      
+    </View>
+    </SafeAreaView>
   );
 }
 
@@ -91,12 +115,7 @@ export function Example() {
     </VStack>
   )
 }
-const config = {
-  useSystemColorMode: false,
-  initialColorMode: "dark",
-};
-// extend the theme
-const customTheme = extendTheme({ config });
+
 
 export default function () {
   const scheme = DarkTheme;
@@ -106,16 +125,18 @@ export default function () {
     }, []),
     <NavigationContainer theme={scheme}>
       
-    <NativeBaseProvider theme={customTheme}>
-    <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    <NativeBaseProvider>
+    <Drawer.Navigator 
+    drawerContent={(props) => <CustomSidebarMenu {...props} />}
+    initialRouteName="Variable Stars">
+      
+        <Drawer.Screen name="Variable Stars" component={HomeScreen} />
+        <Drawer.Screen name="Learn" component={LearnScreen} />
+        <Drawer.Screen name="Explore" component={ExploreScreen} />
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
       </Drawer.Navigator> 
    
-      <SafeAreaView>
-
-
-      </SafeAreaView>
+    
     </NativeBaseProvider>
     </NavigationContainer>
   );
