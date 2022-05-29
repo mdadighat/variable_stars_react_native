@@ -21,6 +21,11 @@ import { HStack, VStack, Button,
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import MyIcon from './src/config/icon-font.js';
+import SplashScreen from "react-native-splash-screen";
+// color scheme hook
+import {useColorScheme} from 'react-native';
+// theme components and the navigation container
+import {DarkTheme,DefaultTheme} from '@react-navigation/native'; 
 
 
 const newColorTheme = {
@@ -94,8 +99,12 @@ const config = {
 const customTheme = extendTheme({ config });
 
 export default function () {
+  const scheme = DarkTheme;
   return (
-    <NavigationContainer>
+    React.useEffect(() => {
+      SplashScreen.hide();
+    }, []),
+    <NavigationContainer theme={scheme}>
       
     <NativeBaseProvider theme={customTheme}>
     <Drawer.Navigator initialRouteName="Home">
